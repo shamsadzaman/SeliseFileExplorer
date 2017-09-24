@@ -12,6 +12,14 @@
     <UserControl.DataContext>
         <viewModel:FolderDetailsViewModel />
     </UserControl.DataContext>
-    <local:FolderDetailsListView Visibility="{Binding FolderViewType, Converter={converter:FolderViewTypeToVisibleConverter}, ConverterParameter={x:Static constants:FolderViewType.List}}" />
+    <StackPanel>
+        <local:FolderDetailsListView Visibility="{Binding FolderViewType, Converter={converter:FolderViewTypeToVisibleConverter}, 
+        ConverterParameter={x:Static constants:FolderViewType.List}}" />
+        
+        <local:FolderDetailsGridView Visibility="{Binding FolderViewType, Converter={converter:FolderViewTypeToVisibleConverter}, 
+        ConverterParameter={x:Static constants:FolderViewType.Grid}}" />
+        
+        <Label Content="{Binding FolderViewType}"></Label>
+    </StackPanel>
 </UserControl>
 

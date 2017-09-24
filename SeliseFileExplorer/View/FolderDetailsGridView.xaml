@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="SeliseFileExplorer.View.FolderDetailsGridView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SeliseFileExplorer.View"
+             xmlns:viewModel="clr-namespace:SeliseFileExplorer.ViewModel"
+             xmlns:converter="clr-namespace:SeliseFileExplorer.Converter"
+             xmlns:constant="clr-namespace:SeliseFileExplorer.Constants"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <viewModel:FolderDetailsViewModel />
+    </UserControl.DataContext>
+    <DataGrid ItemsSource="{Binding ViewList}" HeadersVisibility="None" AutoGenerateColumns="False" CanUserAddRows="False">
+        <DataGrid.ItemTemplate>
+            <DataTemplate>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="../Image/folder.png"
+                           Visibility="{Binding NodeType, Converter={converter:NodeTypeToVisibilityConverter}, 
+                            ConverterParameter={x:Static constant:NodeType.Folder}}" />
+                    <TextBlock Text="{Binding Name}" />
+                </StackPanel>
+            </DataTemplate>
+        </DataGrid.ItemTemplate>
+    </DataGrid>
+</UserControl>

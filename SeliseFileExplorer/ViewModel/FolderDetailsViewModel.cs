@@ -13,6 +13,7 @@ namespace SeliseFileExplorer.ViewModel
     {
         private bool _isListView;
         private ObservableCollection<FolderViewModel> _viewList;
+        private FolderViewType _folderViewType;
         public List<Folder> Folders { get; set; }
 
         public List<File> Files { get; set; }
@@ -37,7 +38,15 @@ namespace SeliseFileExplorer.ViewModel
             }
         }
 
-        public FolderViewType FolderViewType { get; set; }
+        public FolderViewType FolderViewType
+        {
+            get { return _folderViewType; }
+            set
+            {
+                _folderViewType = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public FolderDetailsViewModel()
         {
@@ -75,7 +84,7 @@ namespace SeliseFileExplorer.ViewModel
                 NodeType = NodeType.File
             }));
 
-            FolderViewType = FolderViewType.List;
+            FolderViewType = FolderViewType.Grid;
         }
 
         public void Delete()

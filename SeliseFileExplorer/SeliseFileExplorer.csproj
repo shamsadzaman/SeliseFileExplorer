@@ -100,6 +100,9 @@
     <Compile Include="View\FolderDetails.xaml.cs">
       <DependentUpon>FolderDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\FolderDetailsGridView.xaml.cs">
+      <DependentUpon>FolderDetailsGridView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\FolderDetailsListView.xaml.cs">
       <DependentUpon>FolderDetailsListView.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\FolderDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FolderDetailsGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
