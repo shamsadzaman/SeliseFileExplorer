@@ -17,5 +17,11 @@ namespace SeliseFileExplorer.Model
         public List<Folder> FolderList { get; set; }
 
         public List<File> FileList { get; set; }
+
+        public Folder()
+        {
+            FolderList = new List<Folder>();
+            FileList = new List<File>();
+        }
     }
 }

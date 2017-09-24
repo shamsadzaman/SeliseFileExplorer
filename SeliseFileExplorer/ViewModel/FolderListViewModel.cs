@@ -8,6 +8,7 @@ using SeliseFileExplorer.Constants;
 using SeliseFileExplorer.Model;
 using SeliseFileExplorer.ViewModel.Interface;
 using Directory = SeliseFileExplorer.Model.Directory;
+using File = SeliseFileExplorer.Model.File;
 
 namespace SeliseFileExplorer.ViewModel
 {
@@ -29,25 +30,46 @@ namespace SeliseFileExplorer.ViewModel
 
             FolderTreeViewModelList = new ObservableCollection<FolderTreeViewModel>();
 
-            FolderList.ForEach(x => FolderTreeViewModelList.Add(
-                new FolderTreeViewModel
-                {
-                    Name = x.Name,
-                    Files = x.FileList,
-                    Folders = x.FolderList
-                }
-            ));
+            FolderList.ForEach(x => FolderTreeViewModelList.Add(new FolderTreeViewModel(x)));
+
+
+            //FolderList.ForEach(x => FolderTreeViewModelList.Add(
+            //    new FolderTreeViewModel
+            //    {
+            //        Name = x.Name,
+            //        Files = x.FileList,
+            //        Folders = x.FolderList
+            //    }
+            //));
         }
     }
 
     public class FolderTreeViewModel : ViewModelBase
     {
         private bool _isSelected;
-        public string Name { get; set; }
+        private Folder _folder;
+        private FolderTreeViewModel _parentFolder;
+        private List<File> _files;
 
-        public List<Folder> Folders { get; set; }
+        public FolderTreeViewModel(Folder folder) : this(folder, null)
+        {
+            
+        }
 
-        public List<Model.File> Files { get; set; }
+        private FolderTreeViewModel(Folder folder, FolderTreeViewModel parent)
+        {
+            _folder = folder;
+            _parentFolder = parent;
+
+            Folders = new ObservableCollection<FolderTreeViewModel>(_folder.FolderList.Select(x => new FolderTreeViewModel(x, this)));
+            Files = folder.FileList;
+        }
+
+        public string Name => _folder.Name;
+
+        public ObservableCollection<FolderTreeViewModel> Folders { get; }
+
+        public List<Model.File> Files { get; }
 
         public bool IsSelected
         {
@@ -55,21 +77,25 @@ namespace SeliseFileExplorer.ViewModel
             set
             {
                 _isSelected = value;
-                ShowFolderDetails();
+                if (_isSelected)
+                {
+                    ShowFolderDetails();
+                }
                 RaisePropertyChanged();
             }
         }
 
         private void ShowFolderDetails()
         {
-            MessageBox.Show("Test");
-            var info = new DirectoryInfo
-            {
-                Files = Files,
-                Folders = Folders
-            };
+            MessageBox.Show("File Count: " + Files.Count + "\nFolder Count: " + Folders.Count + "\nIsSelected: " + _isSelected 
+                + "\nFolder Name: " + Name);
+            //var info = new DirectoryInfo
+            //{
+            //    Files = Files,
+            //    Folders = Folders
+            //};
 
-            MessengerInstance.Send(info, MessageToken.FolderDetailsViewModel);
+            //MessengerInstance.Send(info, MessageToken.FolderDetailsViewModel);
         }
     }
 }
