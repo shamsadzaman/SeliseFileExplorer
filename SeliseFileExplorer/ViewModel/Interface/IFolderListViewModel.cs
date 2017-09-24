@@ -5,6 +5,6 @@ namespace SeliseFileExplorer.ViewModel.Interface
 {
     public interface IFolderListViewModel
     {
-        IList<Folder> FolderList { get; set; }
+        List<Folder> FolderList { get; set; }
     }
 }

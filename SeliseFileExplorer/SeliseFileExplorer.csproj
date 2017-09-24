@@ -79,7 +79,7 @@
     <Compile Include="Command\ToolbarCommand.cs" />
     <Compile Include="Constants\DirectoryContentType.cs" />
     <Compile Include="Constants\MessageToken.cs" />
-    <Compile Include="Converter\DirectoryContentTypeToVisibleConverter.cs" />
+    <Compile Include="Converter\BoolToVisibleConverter.cs" />
     <Compile Include="Model\Directory.cs" />
     <Compile Include="Model\File.cs" />
     <Compile Include="Model\Folder.cs" />
@@ -170,7 +170,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Image\folder.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

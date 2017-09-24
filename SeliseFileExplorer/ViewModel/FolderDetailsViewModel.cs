@@ -9,9 +9,20 @@ namespace SeliseFileExplorer.ViewModel
 {
     public class FolderDetailsViewModel : ViewModelBase
     {
+        private bool _isListView;
         public List<Folder> Folders { get; set; }
 
         public List<File> Files { get; set; }
+
+        public bool IsListView
+        {
+            get { return _isListView; }
+            set
+            {
+                _isListView = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public ObservableCollection<FolderViewModel> ViewList { get; set; }
 
@@ -45,6 +56,8 @@ namespace SeliseFileExplorer.ViewModel
                 ModifiedOn = x.ModifiedOn,
                 Type = x.Type
             }));
+
+            IsListView = true;
         }
 
         public void Delete()

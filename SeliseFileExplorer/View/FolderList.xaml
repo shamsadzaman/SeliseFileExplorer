@@ -11,11 +11,19 @@
     <UserControl.DataContext>
         <viewModel:FolderListViewModel />
     </UserControl.DataContext>
-    <TreeView ItemsSource="{Binding FolderList}">
+    <TreeView ItemsSource="{Binding FolderTreeViewModelList}">
         <TreeView.ItemTemplate>
-            <HierarchicalDataTemplate DataType="{x:Type model:Folder}" ItemsSource="{Binding FolderList}">
-                <TextBlock Text="{Binding Name}" />
+            <HierarchicalDataTemplate DataType="{x:Type viewModel:FolderTreeViewModel}" ItemsSource="{Binding Folders}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="../Image/folder.png" Width="10" Height="10"/>
+                    <TextBlock Text="{Binding Name}" />
+                </StackPanel>
             </HierarchicalDataTemplate>
         </TreeView.ItemTemplate>
+        <TreeView.ItemContainerStyle>
+            <Style TargetType="TreeViewItem">
+                <Setter Property="IsSelected" Value="{Binding IsSelected}" />
+            </Style>
+        </TreeView.ItemContainerStyle>
     </TreeView>
 </UserControl>

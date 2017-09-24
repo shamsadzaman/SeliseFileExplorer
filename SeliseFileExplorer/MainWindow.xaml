@@ -22,6 +22,7 @@
                 <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
             <controls:FolderList Grid.Column="0" />
+            <controls:FolderDetails Grid.Column="1"/>
         </Grid>
     </Grid>
 </Window>

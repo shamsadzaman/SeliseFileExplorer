@@ -11,14 +11,14 @@ using SeliseFileExplorer.Constants;
 
 namespace SeliseFileExplorer.Converter
 {
-    [MarkupExtensionReturnType(typeof(DirectoryContentTypeToVisibleConverter))]
-    class DirectoryContentTypeToVisibleConverter : MarkupExtension, IValueConverter
+    [MarkupExtensionReturnType(typeof(BoolToVisibleConverter))]
+    class BoolToVisibleConverter : MarkupExtension, IValueConverter
     {
-        public DirectoryContentTypeToVisibleConverter()
+        public BoolToVisibleConverter()
         {
         }
 
-        private static readonly DirectoryContentTypeToVisibleConverter Instance = new DirectoryContentTypeToVisibleConverter();
+        private static readonly BoolToVisibleConverter Instance = new BoolToVisibleConverter();
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
@@ -27,14 +27,16 @@ namespace SeliseFileExplorer.Converter
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var type = value as DirectoryContentType?;
-
-            if (type == DirectoryContentType.File)
+            if (value is bool)
             {
-                return Visibility.Collapsed;
+                var isTrue = (bool) value;
+                if (isTrue)
+                {
+                    return Visibility.Visible;
+                }
             }
 
-            return Visibility.Visible;
+            return Visibility.Collapsed;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

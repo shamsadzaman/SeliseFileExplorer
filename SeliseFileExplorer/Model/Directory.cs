@@ -4,19 +4,19 @@ namespace SeliseFileExplorer.Model
 {
     public class Directory
     {
-        public IList<Folder> FolderList { get; set; }
+        public List<Folder> FolderList { get; set; }
 
         public Directory()
         {
             FolderList = CreateFolders();
         }
 
-        public IList<Folder> GetFolders()
+        public List<Folder> GetFolders()
         {
             return FolderList;
         }
 
-        private IList<Folder> CreateFolders()
+        private List<Folder> CreateFolders()
         {
             var folderList = new List<Folder>();
 
