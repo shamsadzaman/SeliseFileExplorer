@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
 using SeliseFileExplorer.Constants;
@@ -33,6 +34,7 @@ namespace SeliseFileExplorer.ViewModel
 
         private void SetValue(DirectoryInfo o)
         {
+            MessageBox.Show("Message received");
             Folders = o.Folders;
             Files = o.Files;
         }
