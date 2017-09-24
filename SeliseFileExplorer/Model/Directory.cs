@@ -1,63 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using SeliseFileExplorer.Constants;
+﻿using System.Collections.Generic;
 
 namespace SeliseFileExplorer.Model
 {
     public class Directory
     {
+        public IList<Folder> FolderList { get; set; }
+
+        public Directory()
+        {
+            FolderList = CreateFolders();
+        }
+
         public IList<Folder> GetFolders()
         {
-            //var folderList = new List<DirectoryContent>();
+            return FolderList;
+        }
 
-            //var desktop = new DirectoryContent { Name = "Desktop" };
-            //desktop.ContentList.Add(new DirectoryContent()
-            //{
-            //    Name = "Libraries",
-            //    ContentList = new List<DirectoryContent>
-            //    {
-            //        new DirectoryContent()
-            //        {
-            //            Name = "Documents"
-            //        },
-            //        new DirectoryContent()
-            //        {
-            //            Name = "Music",
-            //            ContentList = new List<DirectoryContent>
-            //            {
-            //                new DirectoryContent
-            //                {
-            //                    Name = "Song 1",
-            //                    ModifiedOn = new DateTime(2010, 10, 10, 10, 10, 10),
-            //                    Size = "30 KB",
-            //                    Type = "MP3",
-            //                    ContentType = DirectoryContentType.File
-            //                },
-            //                new DirectoryContent
-            //                {
-            //                    Name = "Song 2",
-            //                    ModifiedOn = new DateTime(2011, 11, 11, 11, 11, 11),
-            //                    Size = "5 MB",
-            //                    Type = "MP3",
-            //                    ContentType = DirectoryContentType.File
-            //                }
-            //            }
-            //        }
-            //    }
-            //});
-            //desktop.ContentList.Add(new DirectoryContent() { Name = "Computer" });
-
-            //var favorites = new DirectoryContent { Name = "Favorites" };
-            //favorites.ContentList.Add(new DirectoryContent { Name = "Desktop" });
-            //favorites.ContentList.Add(new DirectoryContent { Name = "Downloads" });
-            //favorites.ContentList.Add(new DirectoryContent { Name = "Recent Places" });
-            
-
-            //folderList.Add(favorites);
-            //folderList.Add(desktop);
-
-            //return folderList;
-
+        private IList<Folder> CreateFolders()
+        {
             var folderList = new List<Folder>();
 
             var desktop = new Folder

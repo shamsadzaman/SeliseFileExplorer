@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="SeliseFileExplorer.View.FolderDetailsListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SeliseFileExplorer.View"
+             xmlns:viewModel="clr-namespace:SeliseFileExplorer.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <viewModel:FolderDetailsViewModel />
+    </UserControl.DataContext>
+    <ListView ItemsSource="{Binding ViewList}">
+        <ListView.View>
+            <GridView>
+                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                <GridViewColumn Header="Date Modified" DisplayMemberBinding="{Binding ModifiedOn}" />
+                <GridViewColumn Header="Size" DisplayMemberBinding="{Binding Size}" />
+                <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}" />
+                <GridViewColumn>
+                    <Button Command="{Binding Open}">Open</Button>
+                </GridViewColumn>
+            </GridView>
+        </ListView.View>
+    </ListView>
+</UserControl>
+
+
+

@@ -12,6 +12,8 @@ namespace SeliseFileExplorer.Model
 
         public string Type => "Folder";
 
+        public string Size = "";
+
         public List<Folder> FolderList { get; set; }
 
         public List<File> FileList { get; set; }
