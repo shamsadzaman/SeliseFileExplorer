@@ -18,9 +18,16 @@
                     <GridViewColumn Header="Date Modified" DisplayMemberBinding="{Binding ModifiedOn}" />
                     <GridViewColumn Header="Size" DisplayMemberBinding="{Binding Size}" />
                     <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}" />
-                    <!--<GridViewColumn>
-                    <Button Command="{Binding Open}">Open</Button>
-                </GridViewColumn>-->
+                    <GridViewColumn Header="Open">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="{x:Type viewModel:FolderViewModel}">
+                                <StackPanel Margin="6,2,6,2">
+                                    <Button Content="Open" 
+                                   Command="{Binding OpenFileCommand }"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

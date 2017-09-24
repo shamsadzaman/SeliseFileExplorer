@@ -46,7 +46,7 @@ namespace SeliseFileExplorer.ViewModel
 
         private void SetValue(DirectoryInfo o)
         {
-            MessageBox.Show("Folders: " + o.Folders.Count + "\nFiles: " + o.Files.Count);
+            //MessageBox.Show("Folders: " + o.Folders.Count + "\nFiles: " + o.Files.Count);
             Folders = o.Folders;
             Files = o.Files;
 
@@ -62,7 +62,8 @@ namespace SeliseFileExplorer.ViewModel
                 Name = x.Name,
                 Size = x.Size,
                 ModifiedOn = x.ModifiedOn,
-                Type = x.Type
+                Type = x.Type,
+                NodeType = NodeType.Folder
             }));
 
             Files.ForEach(x => ViewList.Add(new FolderViewModel
@@ -70,10 +71,10 @@ namespace SeliseFileExplorer.ViewModel
                 Name = x.Name,
                 Size = x.Size,
                 ModifiedOn = x.ModifiedOn,
-                Type = x.Type
+                Type = x.Type,
+                NodeType = NodeType.File
             }));
 
-            //IsListView = true;
             FolderViewType = FolderViewType.List;
         }
 

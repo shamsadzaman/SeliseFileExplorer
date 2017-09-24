@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Windows;
+using System.Windows.Input;
 using GalaSoft.MvvmLight;
+using SeliseFileExplorer.Command;
+using SeliseFileExplorer.Constants;
 
 namespace SeliseFileExplorer.ViewModel
 {
@@ -59,6 +63,20 @@ namespace SeliseFileExplorer.ViewModel
                 _isSelected = value; 
                 RaisePropertyChanged();
             }
+        }
+
+        public ICommand OpenFileCommand => new DelegateCommand(OpenFile, CanOpenFile);
+
+        public NodeType NodeType { get; set; }
+
+        private bool CanOpenFile()
+        {
+            return NodeType == NodeType.File;
+        }
+
+        private void OpenFile()
+        {
+            MessageBox.Show(Name);
         }
     }
 }

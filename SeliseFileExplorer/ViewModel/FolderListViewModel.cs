@@ -88,8 +88,8 @@ namespace SeliseFileExplorer.ViewModel
 
         private void ShowFolderDetails()
         {
-            MessageBox.Show("File Count: " + Files.Count + "\nFolder Count: " + Folders.Count + "\nIsSelected: " + _isSelected 
-                + "\nFolder Name: " + Name);
+            //MessageBox.Show("File Count: " + Files.Count + "\nFolder Count: " + Folders.Count + "\nIsSelected: " + _isSelected 
+            //    + "\nFolder Name: " + Name);
             var info = new DirectoryInfo
             {
                 Files = Files,

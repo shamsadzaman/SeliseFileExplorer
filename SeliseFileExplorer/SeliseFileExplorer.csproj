@@ -79,6 +79,7 @@
     <Compile Include="Command\ToolbarCommand.cs" />
     <Compile Include="Constants\FolderViewType.cs" />
     <Compile Include="Constants\MessageToken.cs" />
+    <Compile Include="Constants\NodeType.cs" />
     <Compile Include="Converter\FolderViewTypeToVisibleConverter.cs" />
     <Compile Include="Model\Directory.cs" />
     <Compile Include="Model\File.cs" />
