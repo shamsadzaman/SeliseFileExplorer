@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SeliseFileExplorer.View"
              xmlns:viewModel="clr-namespace:SeliseFileExplorer.ViewModel"
              xmlns:converter="clr-namespace:SeliseFileExplorer.Converter"
              xmlns:constant="clr-namespace:SeliseFileExplorer.Constants"
@@ -12,40 +11,37 @@
     <UserControl.DataContext>
         <viewModel:FolderDetailsViewModel />
     </UserControl.DataContext>
-    <StackPanel>
-        <ListView ItemsSource="{Binding ViewList}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Name">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate DataType="{x:Type viewModel:FolderViewModel}">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="../Image/folder.png" Width="15" Height="15" 
-                                           Visibility="{Binding NodeType, Converter={converter:NodeTypeToVisibilityConverter}, 
+    <ListView ItemsSource="{Binding ViewList}">
+        <ListView.View>
+            <GridView>
+                <GridViewColumn Header="Name">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate DataType="{x:Type viewModel:FolderViewModel}">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="../Image/folder.png" Width="15" Height="15" 
+                                       Visibility="{Binding NodeType, Converter={converter:NodeTypeToVisibilityConverter}, 
                                             ConverterParameter={x:Static constant:NodeType.Folder}}"/>
-                                    <TextBlock Text="{Binding Name}" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Date Modified" DisplayMemberBinding="{Binding ModifiedOn}" />
-                    <GridViewColumn Header="Size" DisplayMemberBinding="{Binding Size}" />
-                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}" />
-                    <GridViewColumn Header="Open">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate DataType="{x:Type viewModel:FolderViewModel}">
-                                <StackPanel Margin="6,2,6,2">
-                                    <Button Content="Open" 
-                                   Command="{Binding OpenFileCommand }"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Label Content="{Binding IsListView}" />
-    </StackPanel>
+                                <TextBlock Text="{Binding Name}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+                <GridViewColumn Header="Date Modified" DisplayMemberBinding="{Binding ModifiedOn}" />
+                <GridViewColumn Header="Size" DisplayMemberBinding="{Binding Size}" />
+                <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}" />
+                <GridViewColumn Header="Open">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate DataType="{x:Type viewModel:FolderViewModel}">
+                            <StackPanel Margin="6,2,6,2">
+                                <Button Content="Open" 
+                                        Command="{Binding OpenFileCommand }"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+            </GridView>
+        </ListView.View>
+    </ListView>
 </UserControl>
 
 
