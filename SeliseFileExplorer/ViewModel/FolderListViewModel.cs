@@ -21,7 +21,6 @@ namespace SeliseFileExplorer.ViewModel
         {
             FolderList =
                 new Directory().GetFolders();
-            var di = new DirectoryInfo("C:/");
         }
     }
 }

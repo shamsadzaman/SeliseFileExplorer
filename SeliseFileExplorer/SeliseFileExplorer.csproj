@@ -78,6 +78,7 @@
     <Compile Include="Command\DelegateCommand.cs" />
     <Compile Include="Command\ToolbarCommand.cs" />
     <Compile Include="Constants\DirectoryContentType.cs" />
+    <Compile Include="Constants\MessageToken.cs" />
     <Compile Include="Converter\DirectoryContentTypeToVisibleConverter.cs" />
     <Compile Include="Model\Directory.cs" />
     <Compile Include="Model\File.cs" />
@@ -86,11 +87,14 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\FolderDetailsViewModel.cs" />
     <Compile Include="ViewModel\FolderListViewModel.cs" />
+    <Compile Include="ViewModel\FolderViewModel.cs" />
     <Compile Include="ViewModel\HeaderViewModel.cs" />
     <Compile Include="ViewModel\Interface\IFolderListViewModel.cs" />
     <Compile Include="ViewModel\Interface\IHeaderViewModel.cs" />
     <Compile Include="ViewModel\Interface\IToolBarViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ToolbarViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\FolderDetails.xaml.cs">
       <DependentUpon>FolderDetails.xaml</DependentUpon>
     </Compile>
