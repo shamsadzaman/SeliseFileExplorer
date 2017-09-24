@@ -11,6 +11,6 @@
     <UserControl.DataContext>
         <viewModel:FolderDetailsViewModel />
     </UserControl.DataContext>
-    <local:FolderDetailsListView Visibility="{Binding IsListView, Converter={converter:BoolToVisibleConverter}}" />
+    <local:FolderDetailsListView />
 </UserControl>
 

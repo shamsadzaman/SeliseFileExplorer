@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
@@ -11,6 +12,7 @@ namespace SeliseFileExplorer.ViewModel
     public class FolderDetailsViewModel : ViewModelBase
     {
         private bool _isListView;
+        private ObservableCollection<FolderViewModel> _viewList;
         public List<Folder> Folders { get; set; }
 
         public List<File> Files { get; set; }
@@ -25,7 +27,15 @@ namespace SeliseFileExplorer.ViewModel
             }
         }
 
-        public ObservableCollection<FolderViewModel> ViewList { get; set; }
+        public ObservableCollection<FolderViewModel> ViewList
+        {
+            get { return _viewList; }
+            set
+            {
+                _viewList = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public FolderDetailsViewModel()
         {
@@ -34,9 +44,11 @@ namespace SeliseFileExplorer.ViewModel
 
         private void SetValue(DirectoryInfo o)
         {
-            MessageBox.Show("Message received");
+            MessageBox.Show("Folders: " + o.Folders.Count + "\nFiles: " + o.Files.Count);
             Folders = o.Folders;
             Files = o.Files;
+
+            Initialize();
         }
 
         public void Initialize()
@@ -66,11 +78,5 @@ namespace SeliseFileExplorer.ViewModel
         {
             // delete selected files
         }
-    }
-
-    public class DirectoryInfo
-    {
-        public List<Folder> Folders { get; set; }
-        public List<File> Files { get; set; }
     }
 }

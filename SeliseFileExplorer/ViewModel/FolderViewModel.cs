@@ -6,13 +6,50 @@ namespace SeliseFileExplorer.ViewModel
     public class FolderViewModel : ViewModelBase
     {
         private bool _isSelected;
-        public string Name { get; set; }
+        private string _name;
+        private DateTime _modifiedOn;
+        private string _size;
+        private string _type;
 
-        public DateTime ModifiedOn { get; set; }
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                RaisePropertyChanged();
+            }
+        }
 
-        public string Size { get; set; }
+        public DateTime ModifiedOn
+        {
+            get { return _modifiedOn; }
+            set
+            {
+                _modifiedOn = value; 
+                RaisePropertyChanged();
+            }
+        }
 
-        public string Type { get; set; }
+        public string Size
+        {
+            get { return _size; }
+            set
+            {
+                _size = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string Type
+        {
+            get { return _type; }
+            set
+            {
+                _type = value; 
+                RaisePropertyChanged();
+            }
+        }
 
         public bool IsSelected
         {

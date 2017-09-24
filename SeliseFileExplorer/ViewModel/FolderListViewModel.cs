@@ -8,6 +8,7 @@ using SeliseFileExplorer.Constants;
 using SeliseFileExplorer.Model;
 using SeliseFileExplorer.ViewModel.Interface;
 using Directory = SeliseFileExplorer.Model.Directory;
+using DirectoryInfo = SeliseFileExplorer.Model.DirectoryInfo;
 using File = SeliseFileExplorer.Model.File;
 
 namespace SeliseFileExplorer.ViewModel

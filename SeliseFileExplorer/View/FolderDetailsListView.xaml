@@ -10,19 +10,22 @@
     <UserControl.DataContext>
         <viewModel:FolderDetailsViewModel />
     </UserControl.DataContext>
-    <ListView ItemsSource="{Binding ViewList}">
-        <ListView.View>
-            <GridView>
-                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
-                <GridViewColumn Header="Date Modified" DisplayMemberBinding="{Binding ModifiedOn}" />
-                <GridViewColumn Header="Size" DisplayMemberBinding="{Binding Size}" />
-                <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}" />
-                <GridViewColumn>
+    <StackPanel>
+        <ListView ItemsSource="{Binding ViewList}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Date Modified" DisplayMemberBinding="{Binding ModifiedOn}" />
+                    <GridViewColumn Header="Size" DisplayMemberBinding="{Binding Size}" />
+                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}" />
+                    <!--<GridViewColumn>
                     <Button Command="{Binding Open}">Open</Button>
-                </GridViewColumn>
-            </GridView>
-        </ListView.View>
-    </ListView>
+                </GridViewColumn>-->
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="{Binding IsListView}" />
+    </StackPanel>
 </UserControl>
 
 
