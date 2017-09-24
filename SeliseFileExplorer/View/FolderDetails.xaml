@@ -6,11 +6,12 @@
              xmlns:local="clr-namespace:SeliseFileExplorer.View"
              xmlns:viewModel="clr-namespace:SeliseFileExplorer.ViewModel"
              xmlns:converter="clr-namespace:SeliseFileExplorer.Converter"
+             xmlns:constants="clr-namespace:SeliseFileExplorer.Constants"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.DataContext>
         <viewModel:FolderDetailsViewModel />
     </UserControl.DataContext>
-    <local:FolderDetailsListView />
+    <local:FolderDetailsListView Visibility="{Binding FolderViewType, Converter={converter:FolderViewTypeToVisibleConverter}, ConverterParameter={x:Static constants:FolderViewType.List}}" />
 </UserControl>
 

@@ -37,6 +37,8 @@ namespace SeliseFileExplorer.ViewModel
             }
         }
 
+        public FolderViewType FolderViewType { get; set; }
+
         public FolderDetailsViewModel()
         {
             MessengerInstance.Register<DirectoryInfo>(this, MessageToken.FolderDetailsViewModel, x => SetValue(x));
@@ -71,7 +73,8 @@ namespace SeliseFileExplorer.ViewModel
                 Type = x.Type
             }));
 
-            IsListView = true;
+            //IsListView = true;
+            FolderViewType = FolderViewType.List;
         }
 
         public void Delete()
