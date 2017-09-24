@@ -60,7 +60,6 @@
     <Compile Include="Constants\DirectoryContentType.cs" />
     <Compile Include="Converter\DirectoryContentTypeToVisibleConverter.cs" />
     <Compile Include="Model\Directory.cs" />
-    <Compile Include="Model\DirectoryContent.cs" />
     <Compile Include="Model\File.cs" />
     <Compile Include="Model\Folder.cs" />
     <Compile Include="Properties\Annotations.cs" />
