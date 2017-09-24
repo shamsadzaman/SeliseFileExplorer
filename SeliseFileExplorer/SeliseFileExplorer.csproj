@@ -81,6 +81,7 @@
     <Compile Include="Constants\MessageToken.cs" />
     <Compile Include="Constants\NodeType.cs" />
     <Compile Include="Converter\FolderViewTypeToVisibleConverter.cs" />
+    <Compile Include="Converter\NodeTypeToVisibilityConverter.cs" />
     <Compile Include="Model\Directory.cs" />
     <Compile Include="Model\File.cs" />
     <Compile Include="Model\Folder.cs" />

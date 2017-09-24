@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SeliseFileExplorer.View"
              xmlns:viewModel="clr-namespace:SeliseFileExplorer.ViewModel"
+             xmlns:converter="clr-namespace:SeliseFileExplorer.Converter"
+             xmlns:constant="clr-namespace:SeliseFileExplorer.Constants"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.DataContext>
@@ -14,7 +16,18 @@
         <ListView ItemsSource="{Binding ViewList}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Name">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="{x:Type viewModel:FolderViewModel}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="../Image/folder.png" Width="15" Height="15" 
+                                           Visibility="{Binding NodeType, Converter={converter:NodeTypeToVisibilityConverter}, 
+                                            ConverterParameter={x:Static constant:NodeType.Folder}}"/>
+                                    <TextBlock Text="{Binding Name}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn Header="Date Modified" DisplayMemberBinding="{Binding ModifiedOn}" />
                     <GridViewColumn Header="Size" DisplayMemberBinding="{Binding Size}" />
                     <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}" />
@@ -34,6 +47,10 @@
         <Label Content="{Binding IsListView}" />
     </StackPanel>
 </UserControl>
+
+
+
+
 
 
 
