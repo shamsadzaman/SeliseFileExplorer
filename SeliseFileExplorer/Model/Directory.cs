@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SeliseFileExplorer.Model
 {
@@ -63,11 +64,13 @@ namespace SeliseFileExplorer.Model
                                 {
                                     new Folder
                                     {
-                                        Name = "New Folder 1"
+                                        Name = "New Folder 1",
+                                        ModifiedOn = new DateTime(2016, 09, 23, 12, 39, 04)
                                     },
                                     new Folder
                                     {
-                                        Name = "New Folder 2"
+                                        Name = "New Folder 2",
+                                        ModifiedOn = new DateTime(2017, 09, 23, 12, 39, 04)
                                     }
                                 },
                                 FileList = new List<File>
@@ -76,13 +79,15 @@ namespace SeliseFileExplorer.Model
                                     {
                                         Name = "Pic 1",
                                         Size = "5 MB",
-                                        Type = "JPEG Image"
+                                        Type = "JPEG Image",
+                                        ModifiedOn = new DateTime(new Random().Next(1900, 2017), 08, new Random().Next(1, 31), 03, 03, 03)
                                     },
                                     new File
                                     {
                                         Name = "Pic 2",
                                         Size = "5 KB",
-                                        Type = "PNG"
+                                        Type = "PNG",
+                                        ModifiedOn = new DateTime(2017, 07, 14, 23, 39, 50)
                                     }
                                 }
                             }
