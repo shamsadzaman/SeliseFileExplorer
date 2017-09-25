@@ -89,8 +89,6 @@ namespace SeliseFileExplorer.ViewModel
                 Type = x.Type,
                 NodeType = NodeType.File
             }));
-
-            FolderViewType = FolderViewType.Grid;
         }
 
         public void Delete()

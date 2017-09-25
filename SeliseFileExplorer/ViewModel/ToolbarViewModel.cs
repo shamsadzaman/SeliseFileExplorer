@@ -73,7 +73,7 @@ namespace SeliseFileExplorer.ViewModel
         private void Execute()
         {
             // talk to shell to call the appropriate viewmodel
-            MessageBox.Show("Command executed");
+            MessageBox.Show("Delete - Not yet implemented");
         }
 
         private bool CanExecute()
