@@ -76,7 +76,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Command\DelegateCommand.cs" />
-    <Compile Include="Command\ToolbarCommand.cs" />
+    <Compile Include="Command\ToolbarCommandViewModel.cs" />
     <Compile Include="Constants\FolderViewType.cs" />
     <Compile Include="Constants\MessageToken.cs" />
     <Compile Include="Constants\NodeType.cs" />
@@ -187,6 +187,10 @@
     <Resource Include="Image\logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\ListView.png" />
+    <Resource Include="Image\TileView.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

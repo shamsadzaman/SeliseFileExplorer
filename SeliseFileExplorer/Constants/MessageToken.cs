@@ -2,6 +2,7 @@
 {
     public enum MessageToken
     {
-        FolderDetailsViewModel
+        FolderDetailsViewModel,
+        ChangeView
     }
 }

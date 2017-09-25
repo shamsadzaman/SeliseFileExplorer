@@ -6,6 +6,6 @@ namespace SeliseFileExplorer.ViewModel.Interface
 {
     public interface IToolBarViewModel
     {
-        List<ToolbarCommand> ToolbarCommandList { get; set; }
+        List<ToolbarCommandViewModel> ToolbarCommandList { get; set; }
     }
 }

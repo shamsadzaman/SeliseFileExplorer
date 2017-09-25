@@ -51,6 +51,12 @@ namespace SeliseFileExplorer.ViewModel
         public FolderDetailsViewModel()
         {
             MessengerInstance.Register<DirectoryInfo>(this, MessageToken.FolderDetailsViewModel, x => SetValue(x));
+            MessengerInstance.Register<FolderViewType>(this, MessageToken.ChangeView, x => ChangeView(x));
+        }
+
+        private void ChangeView(FolderViewType folderViewType)
+        {
+            FolderViewType = folderViewType;
         }
 
         private void SetValue(DirectoryInfo o)
