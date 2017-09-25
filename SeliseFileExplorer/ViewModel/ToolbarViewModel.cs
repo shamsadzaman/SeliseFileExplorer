@@ -58,7 +58,7 @@ namespace SeliseFileExplorer.ViewModel
                 var logoLocation = "Image/ListView.png";
                 //new BitmapImage(new Uri(@"pack://application:,,,/SeliseFileExplorer;component/" + logoLocation));
                 ChangeViewCommandViewModel.CommandIconLocation = new BitmapImage(
-                    new Uri(@"pack://application:,,,/SeliseFileExplorer;component/" + logoLocation));
+                    new Uri(_config.ResourceLocation + logoLocation));
             }
             else
             {
@@ -67,7 +67,7 @@ namespace SeliseFileExplorer.ViewModel
                 var logoLocation = "Image/TileView.png";
                 //new BitmapImage(new Uri(@"pack://application:,,,/SeliseFileExplorer;component/" + logoLocation));
                 ChangeViewCommandViewModel.CommandIconLocation = new BitmapImage(
-                    new Uri(@"pack://application:,,,/SeliseFileExplorer;component/" + logoLocation));
+                    new Uri(_config.ResourceLocation + logoLocation));
             }
 
             MessengerInstance.Send(CurrentFolderViewType, MessageToken.ChangeView);
