@@ -37,7 +37,6 @@ namespace SeliseFileExplorer.ViewModel
                 new ToolbarCommandViewModel
                 {
                     Command = new DelegateCommand(Execute, CanExecute),
-                    CommandDisplayName = "Delete",
                     CommandType = ToolbarCommandType.Delete
                 },
                 ChangeViewCommandViewModel
