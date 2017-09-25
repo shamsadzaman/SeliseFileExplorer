@@ -8,15 +8,8 @@ using SeliseFileExplorer.Constants;
 namespace SeliseFileExplorer.Converter
 {
     [MarkupExtensionReturnType(typeof(NodeTypeToVisibilityConverter))]
-    public class NodeTypeToVisibilityConverter : MarkupExtension, IValueConverter
+    public class NodeTypeToVisibilityConverter : BaseConverter, IValueConverter
     {
-        private static readonly NodeTypeToVisibilityConverter Instance = new NodeTypeToVisibilityConverter();
-
-        public override object ProvideValue(IServiceProvider serviceProvider)
-        {
-            return Instance;
-        }
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (!(value is NodeType) || !(parameter is NodeType))
