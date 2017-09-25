@@ -6,6 +6,7 @@ using GalaSoft.MvvmLight;
 using SeliseFileExplorer.Command;
 using SeliseFileExplorer.Config;
 using SeliseFileExplorer.Constants;
+using SeliseFileExplorer.Model;
 using SeliseFileExplorer.ViewModel.Interface;
 
 namespace SeliseFileExplorer.ViewModel
@@ -35,7 +36,7 @@ namespace SeliseFileExplorer.ViewModel
             {
                 new ToolbarCommandViewModel
                 {
-                    Command = new DelegateCommand(Execute, CanExecute),
+                    Command = new DelegateCommand(Delete, CanExecute),
                     CommandType = ToolbarCommandType.Delete
                 },
                 ChangeViewCommandViewModel
@@ -65,10 +66,10 @@ namespace SeliseFileExplorer.ViewModel
             MessengerInstance.Send(CurrentFolderViewType, MessageToken.ChangeView);
         }
 
-        private void Execute()
+        private void Delete()
         {
             // talk to shell to call the appropriate viewmodel
-            MessageBox.Show("Delete - Not yet implemented");
+            MessengerInstance.Send(new DeleteFiles(), MessageToken.Delete);
         }
 
         private bool CanExecute()

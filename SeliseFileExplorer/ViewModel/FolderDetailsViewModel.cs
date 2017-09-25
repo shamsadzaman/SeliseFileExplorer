@@ -51,6 +51,7 @@ namespace SeliseFileExplorer.ViewModel
         {
             MessengerInstance.Register<DirectoryInfo>(this, MessageToken.FolderDetailsViewModel, x => SetValue(x));
             MessengerInstance.Register<FolderViewType>(this, MessageToken.ChangeView, x => ChangeView(x));
+            MessengerInstance.Register<DeleteFiles>(this, MessageToken.Delete, x => DeleteSelected());
         }
 
         private void ChangeView(FolderViewType folderViewType)
@@ -90,7 +91,7 @@ namespace SeliseFileExplorer.ViewModel
             }));
         }
 
-        public void Delete()
+        public void DeleteSelected()
         {
             // delete selected files
         }

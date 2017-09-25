@@ -3,6 +3,7 @@
     public enum MessageToken
     {
         FolderDetailsViewModel,
-        ChangeView
+        ChangeView,
+        Delete
     }
 }
