@@ -85,7 +85,7 @@
     <Compile Include="Constants\NodeType.cs" />
     <Compile Include="Constants\ToolbarCommandType.cs" />
     <Compile Include="Converter\BaseConverter.cs" />
-    <Compile Include="Converter\Class1.cs" />
+    <Compile Include="Converter\ToolbarCommandTypeToDisplayName.cs" />
     <Compile Include="Converter\FolderViewTypeToVisibleConverter.cs" />
     <Compile Include="Converter\NodeTypeToVisibilityConverter.cs" />
     <Compile Include="Converter\ToolbarCommandTypeToImageSource.cs" />
