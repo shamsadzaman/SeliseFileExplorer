@@ -28,7 +28,8 @@ namespace SeliseFileExplorer.ViewModel
             ChangeViewCommandViewModel = new ToolbarCommandViewModel
             {
                 Command = new DelegateCommand(ChangeView, CanChangeView),
-                CommandDisplayName = "Grid View"
+                CommandDisplayName = "Grid View",
+                CommandType = ToolbarCommandType.ShowGridView
             };
 
             ToolbarCommandList = new List<ToolbarCommandViewModel>
@@ -36,7 +37,8 @@ namespace SeliseFileExplorer.ViewModel
                 new ToolbarCommandViewModel
                 {
                     Command = new DelegateCommand(Execute, CanExecute),
-                    CommandDisplayName = "Delete"
+                    CommandDisplayName = "Delete",
+                    CommandType = ToolbarCommandType.Delete
                 },
                 ChangeViewCommandViewModel
             };
@@ -54,20 +56,12 @@ namespace SeliseFileExplorer.ViewModel
             if (CurrentFolderViewType == FolderViewType.List)
             {
                 CurrentFolderViewType = FolderViewType.Grid;
-                ChangeViewCommandViewModel.CommandDisplayName = "List View";
-                var logoLocation = "Image/ListView.png";
-                //new BitmapImage(new Uri(@"pack://application:,,,/SeliseFileExplorer;component/" + logoLocation));
-                ChangeViewCommandViewModel.CommandIconLocation = new BitmapImage(
-                    new Uri(_config.ResourceLocation + logoLocation));
+                ChangeViewCommandViewModel.CommandType = ToolbarCommandType.ShowListView;
             }
             else
             {
                 CurrentFolderViewType = FolderViewType.List;
-                ChangeViewCommandViewModel.CommandDisplayName = "Grid View";
-                var logoLocation = "Image/TileView.png";
-                //new BitmapImage(new Uri(@"pack://application:,,,/SeliseFileExplorer;component/" + logoLocation));
-                ChangeViewCommandViewModel.CommandIconLocation = new BitmapImage(
-                    new Uri(_config.ResourceLocation + logoLocation));
+                ChangeViewCommandViewModel.CommandType = ToolbarCommandType.ShowGridView;
             }
 
             MessengerInstance.Send(CurrentFolderViewType, MessageToken.ChangeView);

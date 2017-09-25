@@ -83,8 +83,11 @@
     <Compile Include="Constants\FolderViewType.cs" />
     <Compile Include="Constants\MessageToken.cs" />
     <Compile Include="Constants\NodeType.cs" />
+    <Compile Include="Constants\ToolbarCommandType.cs" />
+    <Compile Include="Converter\BaseConverter.cs" />
     <Compile Include="Converter\FolderViewTypeToVisibleConverter.cs" />
     <Compile Include="Converter\NodeTypeToVisibilityConverter.cs" />
+    <Compile Include="Converter\ToolbarCommandTypeToImageSource.cs" />
     <Compile Include="Model\Directory.cs" />
     <Compile Include="Model\File.cs" />
     <Compile Include="Model\Folder.cs" />
@@ -192,8 +195,11 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\ListView.png" />
-    <Resource Include="Image\TileView.png" />
+    <Resource Include="Image\listView.png" />
+    <Resource Include="Image\tileView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

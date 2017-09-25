@@ -1,6 +1,7 @@
 ﻿using System.Windows.Input;
 using System.Windows.Media;
 using GalaSoft.MvvmLight;
+using SeliseFileExplorer.Constants;
 
 namespace SeliseFileExplorer.Command
 {
@@ -8,6 +9,7 @@ namespace SeliseFileExplorer.Command
     {
         private string _commandDisplayName;
         private ImageSource _commandIconLocation;
+        private ToolbarCommandType _commandType;
         public ICommand Command { get; set; }
 
         public string CommandDisplayName
@@ -26,6 +28,16 @@ namespace SeliseFileExplorer.Command
             set
             {
                 _commandIconLocation = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public ToolbarCommandType CommandType
+        {
+            get { return _commandType; }
+            set
+            {
+                _commandType = value;
                 RaisePropertyChanged();
             }
         }
