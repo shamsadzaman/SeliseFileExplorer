@@ -28,7 +28,6 @@ namespace SeliseFileExplorer.ViewModel
             ChangeViewCommandViewModel = new ToolbarCommandViewModel
             {
                 Command = new DelegateCommand(ChangeView, CanChangeView),
-                CommandDisplayName = "Grid View",
                 CommandType = ToolbarCommandType.ShowGridView
             };
 
