@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Messaging;
 using SeliseFileExplorer.Constants;
 using SeliseFileExplorer.Model;
 
