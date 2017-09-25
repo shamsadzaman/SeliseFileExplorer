@@ -13,14 +13,24 @@ using File = SeliseFileExplorer.Model.File;
 
 namespace SeliseFileExplorer.ViewModel
 {
-    public class FolderListViewModel : IFolderListViewModel
+    public class FolderListViewModel : ViewModelBase, IFolderListViewModel
     {
+        private ObservableCollection<FolderTreeViewModel> _folderTreeViewModelList;
         public List<Folder> FolderList { get; set; }
 
-        public ObservableCollection<FolderTreeViewModel> FolderTreeViewModelList { get; set; }
+        public ObservableCollection<FolderTreeViewModel> FolderTreeViewModelList
+        {
+            get { return _folderTreeViewModelList; }
+            set
+            {
+                _folderTreeViewModelList = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public FolderListViewModel()
         {
+            MessengerInstance.Register<DeleteFiles>(this, MessageToken.RefreshTree, x => Initialize());
             Initialize();
         }
 

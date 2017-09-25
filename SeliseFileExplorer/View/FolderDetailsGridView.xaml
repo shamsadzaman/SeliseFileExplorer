@@ -12,7 +12,7 @@
     <UserControl.DataContext>
         <viewModel:FolderDetailsViewModel />
     </UserControl.DataContext>
-    <DataGrid ItemsSource="{Binding ViewList}" HeadersVisibility="None" CanUserAddRows="False">
+    <DataGrid ItemsSource="{Binding ViewList}" HeadersVisibility="None" CanUserAddRows="False" SelectedItem="{Binding SelectedFolderViewModel}">
         <DataGrid.ItemTemplate>
             <DataTemplate>
                 <StackPanel Orientation="Horizontal">

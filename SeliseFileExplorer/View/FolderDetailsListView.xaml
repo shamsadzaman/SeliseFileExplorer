@@ -11,7 +11,7 @@
     <UserControl.DataContext>
         <viewModel:FolderDetailsViewModel />
     </UserControl.DataContext>
-    <ListView ItemsSource="{Binding ViewList}">
+    <ListView ItemsSource="{Binding ViewList}" SelectedItem="{Binding SelectedFolderViewModel}">
         <ListView.View>
             <GridView>
                 <GridViewColumn Header="Name" Width="150">

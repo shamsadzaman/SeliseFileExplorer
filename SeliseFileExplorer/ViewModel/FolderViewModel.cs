@@ -4,6 +4,7 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using SeliseFileExplorer.Command;
 using SeliseFileExplorer.Constants;
+using SeliseFileExplorer.Model;
 
 namespace SeliseFileExplorer.ViewModel
 {
@@ -14,6 +15,8 @@ namespace SeliseFileExplorer.ViewModel
         private DateTime _modifiedOn;
         private string _size;
         private string _type;
+        private Folder _folder;
+        private File _file;
 
         public string Name
         {
@@ -68,6 +71,26 @@ namespace SeliseFileExplorer.ViewModel
         public ICommand OpenFileCommand => new DelegateCommand(OpenFile, CanOpenFile);
 
         public NodeType NodeType { get; set; }
+
+        public Folder Folder
+        {
+            get { return _folder; }
+            set
+            {
+                _folder = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public File File
+        {
+            get { return _file; }
+            set
+            {
+                _file = value;
+                RaisePropertyChanged();
+            }
+        }
 
         private bool CanOpenFile()
         {

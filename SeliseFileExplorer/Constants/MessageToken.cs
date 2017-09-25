@@ -4,6 +4,7 @@
     {
         FolderDetailsViewModel,
         ChangeView,
-        Delete
+        Delete,
+        RefreshTree
     }
 }

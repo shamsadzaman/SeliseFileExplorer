@@ -13,6 +13,7 @@ namespace SeliseFileExplorer.ViewModel
         private bool _isListView;
         private ObservableCollection<FolderViewModel> _viewList;
         private FolderViewType _folderViewType;
+        private FolderViewModel _selectedFolderViewModel;
         public List<Folder> Folders { get; set; }
 
         public List<File> Files { get; set; }
@@ -74,6 +75,7 @@ namespace SeliseFileExplorer.ViewModel
 
             Folders.ForEach(x => ViewList.Add(new FolderViewModel
             {
+                Folder = x,
                 Name = x.Name,
                 Size = x.Size,
                 ModifiedOn = x.ModifiedOn,
@@ -83,6 +85,7 @@ namespace SeliseFileExplorer.ViewModel
 
             Files.ForEach(x => ViewList.Add(new FolderViewModel
             {
+                File = x,
                 Name = x.Name,
                 Size = x.Size,
                 ModifiedOn = x.ModifiedOn,
@@ -91,9 +94,36 @@ namespace SeliseFileExplorer.ViewModel
             }));
         }
 
+        public FolderViewModel SelectedFolderViewModel
+        {
+            get { return _selectedFolderViewModel; }
+            set
+            {
+                _selectedFolderViewModel = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public void DeleteSelected()
         {
-            // delete selected files
+            if (SelectedFolderViewModel == null)
+            {
+                return;
+            }
+
+            // TODO: DI directory, remove strong coupling
+            var directory = new Directory();
+
+            if (SelectedFolderViewModel.NodeType == NodeType.Folder)
+            {
+                directory.DeleteFolder(SelectedFolderViewModel.Folder);
+                ViewList.Remove(SelectedFolderViewModel);
+                MessengerInstance.Send(new DeleteFiles(), MessageToken.RefreshTree);
+            }
+            else
+            {
+                MessageBox.Show("File Delete Not Implemented Yet");
+            }
         }
     }
 }

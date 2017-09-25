@@ -5,11 +5,14 @@ namespace SeliseFileExplorer.Model
 {
     public class Directory
     {
-        public List<Folder> FolderList { get; set; }
+        public static List<Folder> FolderList { get; set; }
 
         public Directory()
         {
-            FolderList = CreateFolders();
+            if (FolderList == null)
+            {
+                FolderList = CreateFolders();
+            }
         }
 
         public List<Folder> GetFolders()
