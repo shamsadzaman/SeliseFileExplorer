@@ -6,9 +6,12 @@
              xmlns:viewmodel="clr-namespace:SeliseFileExplorer.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="100">
-    <UserControl.DataContext>
-        <viewmodel:ToolbarViewModel />
-    </UserControl.DataContext>
+    <UserControl.Resources>
+        <viewmodel:ViewModelLocator x:Key="ViewModelLocator" />
+    </UserControl.Resources>
+        <UserControl.DataContext>
+            <Binding Source="{StaticResource ViewModelLocator}" Path="ToolBarViewModel" />
+        </UserControl.DataContext>
         <ItemsControl ItemsSource="{Binding ToolbarCommandList}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>

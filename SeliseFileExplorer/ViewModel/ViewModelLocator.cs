@@ -15,6 +15,8 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using SeliseFileExplorer.Config;
+using SeliseFileExplorer.ViewModel.Interface;
 
 namespace SeliseFileExplorer.ViewModel
 {
@@ -43,14 +45,23 @@ namespace SeliseFileExplorer.ViewModel
             ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<IAppConfig, AppConfig>();
+            SimpleIoc.Default.Register<IToolBarViewModel, ToolbarViewModel>();
         }
 
         public MainViewModel Main
         {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
-            }
+            get { return ServiceLocator.Current.GetInstance<MainViewModel>(); }
+        }
+
+        public IAppConfig AppConfig
+        {
+            get { return ServiceLocator.Current.GetInstance<IAppConfig>(); }
+        }
+
+        public IToolBarViewModel ToolBarViewModel
+        {
+            get { return ServiceLocator.Current.GetInstance<IToolBarViewModel>(); }
         }
         
         public static void Cleanup()

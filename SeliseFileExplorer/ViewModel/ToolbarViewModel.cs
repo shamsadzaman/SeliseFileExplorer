@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using GalaSoft.MvvmLight;
 using SeliseFileExplorer.Command;
+using SeliseFileExplorer.Config;
 using SeliseFileExplorer.Constants;
 using SeliseFileExplorer.ViewModel.Interface;
 
@@ -11,12 +12,14 @@ namespace SeliseFileExplorer.ViewModel
 {
     public class ToolbarViewModel : ViewModelBase, IToolBarViewModel
     {
+        private IAppConfig _config;
         public List<ToolbarCommandViewModel> ToolbarCommandList { get; set; }
 
         public FolderViewType CurrentFolderViewType { get; set; }
 
-        public ToolbarViewModel()
+        public ToolbarViewModel(IAppConfig config)
         {
+            _config = config;
             Initialize();
         }
 
