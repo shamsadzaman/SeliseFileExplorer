@@ -44,7 +44,29 @@ namespace SeliseFileExplorer.Model
 
         public void DeleteFile(File fileToDelete)
         {
-            
+            foreach (var folder in FolderList)
+            {
+                DeleteFile(fileToDelete, folder);
+            }
+        }
+
+        public void DeleteFile(File fileToDelete, Folder folderToCheck)
+        {
+            if (folderToCheck == null)
+            {
+                return;
+            }
+
+            if (folderToCheck.FileList.Contains(fileToDelete))
+            {
+                folderToCheck.FileList.Remove(fileToDelete);
+                return;
+            }
+
+            foreach (var folder in folderToCheck.FolderList)
+            {
+                DeleteFile(fileToDelete, folder);
+            }
         }
 
         private List<Folder> CreateFolders()

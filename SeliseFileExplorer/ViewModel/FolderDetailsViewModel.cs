@@ -117,13 +117,15 @@ namespace SeliseFileExplorer.ViewModel
             if (SelectedFolderViewModel.NodeType == NodeType.Folder)
             {
                 directory.DeleteFolder(SelectedFolderViewModel.Folder);
-                ViewList.Remove(SelectedFolderViewModel);
-                MessengerInstance.Send(new DeleteFiles(), MessageToken.RefreshTree);
             }
             else
             {
-                MessageBox.Show("File Delete Not Implemented Yet");
+                //MessageBox.Show("File Delete Not Implemented Yet");
+                directory.DeleteFile(SelectedFolderViewModel.File);
             }
+
+            ViewList.Remove(SelectedFolderViewModel);
+            MessengerInstance.Send(new DeleteFiles(), MessageToken.RefreshTree);
         }
     }
 }
