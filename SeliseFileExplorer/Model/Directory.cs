@@ -60,6 +60,7 @@ namespace SeliseFileExplorer.Model
             if (folderToCheck.FileList.Contains(fileToDelete))
             {
                 folderToCheck.FileList.Remove(fileToDelete);
+                folderToCheck.ModifiedOn = DateTime.Now;
                 return;
             }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Documents;
 
 namespace SeliseFileExplorer.Model
@@ -37,5 +38,15 @@ namespace SeliseFileExplorer.Model
             FolderList = new List<Folder>();
             FileList = new List<File>();
         }
+
+        //private DateTime GetModifiedOn()
+        //{
+        //    if (FileList == null || FileList.Count == 0)
+        //    {
+        //        return new DateTime(new Random().Next(1900, 2017), 08, new Random().Next(1, 31), 03, 03, 03);
+        //    }
+
+        //    return FileList.Max(x => x.ModifiedOn);
+        //}
     }
 }

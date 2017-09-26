@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Windows;
 using GalaSoft.MvvmLight;
 using SeliseFileExplorer.Constants;
 using SeliseFileExplorer.Model;
@@ -62,7 +60,6 @@ namespace SeliseFileExplorer.ViewModel
 
         private void SetValue(DirectoryInfo o)
         {
-            //MessageBox.Show("Folders: " + o.Folders.Count + "\nFiles: " + o.Files.Count);
             Folders = o.Folders;
             Files = o.Files;
 
@@ -120,7 +117,6 @@ namespace SeliseFileExplorer.ViewModel
             }
             else
             {
-                //MessageBox.Show("File Delete Not Implemented Yet");
                 directory.DeleteFile(SelectedFolderViewModel.File);
             }
 
