@@ -24,22 +24,32 @@ namespace SeliseFileExplorer.Model
         {
             foreach (var folder in FolderList)
             {
-                DeleteFolder(folderToDelete, folder.FolderList);
+                if (DeleteFolder(folderToDelete, folder.FolderList))
+                {
+                    break;
+                }
             }
         }
 
-        public void DeleteFolder(Folder folderToDelete, List<Folder> childFolders)
+        public bool DeleteFolder(Folder folderToDelete, List<Folder> childFolders)
         {
             if (childFolders.Contains(folderToDelete))
             {
                 childFolders.Remove(folderToDelete);
-                return;
+                return true;
             }
 
             foreach (var folder in childFolders)
             {
-                DeleteFolder(folderToDelete, folder.FolderList);
+                var isDeletionComplete = DeleteFolder(folderToDelete, folder.FolderList);
+                if (isDeletionComplete)
+                {
+                    folder.ModifiedOn = DateTime.Now;
+                    return true;
+                }
             }
+
+            return false;
         }
 
         public void DeleteFile(File fileToDelete)
