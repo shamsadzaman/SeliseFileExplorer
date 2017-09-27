@@ -74,7 +74,7 @@ namespace SeliseFileExplorer.ViewModel
             {
                 Folder = x,
                 Name = x.Name,
-                Size = x.Size,
+                Size = null,
                 ModifiedOn = x.ModifiedOn,
                 Type = x.Type,
                 NodeType = NodeType.Folder
@@ -97,7 +97,16 @@ namespace SeliseFileExplorer.ViewModel
             set
             {
                 _selectedFolderViewModel = value;
+                UpdateFooter(value);
                 RaisePropertyChanged();
+            }
+        }
+
+        private void UpdateFooter(FolderViewModel folderViewModel)
+        {
+            if (folderViewModel != null)
+            {
+                MessengerInstance.Send(folderViewModel, MessageToken.UpdateFooter);
             }
         }
 

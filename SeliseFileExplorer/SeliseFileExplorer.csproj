@@ -85,6 +85,7 @@
     <Compile Include="Constants\NodeType.cs" />
     <Compile Include="Constants\ToolbarCommandType.cs" />
     <Compile Include="Converter\BaseConverter.cs" />
+    <Compile Include="Converter\NullToCollapsedConverter.cs" />
     <Compile Include="Converter\ToolbarCommandTypeToDisplayName.cs" />
     <Compile Include="Converter\FolderViewTypeToVisibleConverter.cs" />
     <Compile Include="Converter\NodeTypeToVisibilityConverter.cs" />
@@ -98,8 +99,10 @@
     <Compile Include="ViewModel\FolderDetailsViewModel.cs" />
     <Compile Include="ViewModel\FolderListViewModel.cs" />
     <Compile Include="ViewModel\FolderViewModel.cs" />
+    <Compile Include="ViewModel\FooterViewModel.cs" />
     <Compile Include="ViewModel\HeaderViewModel.cs" />
     <Compile Include="ViewModel\Interface\IFolderListViewModel.cs" />
+    <Compile Include="ViewModel\Interface\IFooterViewModel.cs" />
     <Compile Include="ViewModel\Interface\IHeaderViewModel.cs" />
     <Compile Include="ViewModel\Interface\IToolBarViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -116,6 +119,9 @@
     </Compile>
     <Compile Include="View\FolderList.xaml.cs">
       <DependentUpon>FolderList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Footer.xaml.cs">
+      <DependentUpon>Footer.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Header.xaml.cs">
       <DependentUpon>Header.xaml</DependentUpon>
@@ -148,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FolderList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Footer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

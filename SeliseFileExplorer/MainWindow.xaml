@@ -25,5 +25,6 @@
             <controls:FolderList Grid.Column="0" />
             <controls:FolderDetails Grid.Column="1"/>
         </Grid>
+        <controls:Footer Grid.Row="3" />
     </Grid>
 </Window>

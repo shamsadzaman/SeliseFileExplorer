@@ -47,6 +47,7 @@ namespace SeliseFileExplorer.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<IAppConfig, AppConfig>();
             SimpleIoc.Default.Register<IToolBarViewModel, ToolbarViewModel>();
+            SimpleIoc.Default.Register<IFooterViewModel, FooterViewModel>();
         }
 
         public MainViewModel Main
@@ -62,6 +63,11 @@ namespace SeliseFileExplorer.ViewModel
         public IToolBarViewModel ToolBarViewModel
         {
             get { return ServiceLocator.Current.GetInstance<IToolBarViewModel>(); }
+        }
+
+        public IFooterViewModel FooterViewModel
+        {
+            get { return ServiceLocator.Current.GetInstance<IFooterViewModel>(); }
         }
         
         public static void Cleanup()

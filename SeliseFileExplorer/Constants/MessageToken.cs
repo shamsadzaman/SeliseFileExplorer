@@ -5,6 +5,7 @@
         FolderDetailsViewModel,
         ChangeView,
         Delete,
-        RefreshTree
+        RefreshTree,
+        UpdateFooter
     }
 }

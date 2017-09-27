@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="SeliseFileExplorer.View.Footer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SeliseFileExplorer.View"
+             xmlns:converter="clr-namespace:SeliseFileExplorer.Converter"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <Binding Source="{StaticResource Locator}" Path="FooterViewModel" />
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Content="{Binding Name}" />
+        <StackPanel Grid.Column="1" Orientation="Horizontal" 
+                    Visibility="{Binding ModifiedOn, Converter={converter:NullToCollapsedConverter}}">
+            <Label>Modified On:</Label>
+            <Label Content="{Binding ModifiedOn}" />
+        </StackPanel>
+        <StackPanel Grid.Column="2" Orientation="Horizontal"
+                    Visibility="{Binding Size, Converter={converter:NullToCollapsedConverter}}">
+            <Label>Size:</Label>
+            <Label Content="{Binding Size}" />
+        </StackPanel>
+    </Grid>
+</UserControl>
