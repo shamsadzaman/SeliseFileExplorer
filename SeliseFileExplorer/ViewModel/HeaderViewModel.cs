@@ -22,7 +22,7 @@ namespace SeliseFileExplorer.ViewModel
         public void Initialize()
         {
             // "pack://application:,,,/AssemblyName;component/Resources/logo.png"
-            var logoLocation = "Image/logo.png";
+            var logoLocation = "Image/logo.jpg";
             LogoSource = new BitmapImage(new Uri(@"pack://application:,,,/SeliseFileExplorer;component/" + logoLocation));
 
             LogoImageLocation = "";

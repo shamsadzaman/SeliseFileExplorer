@@ -202,16 +202,14 @@
     <Resource Include="Image\folder.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\logo.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Image\listView.png" />
     <Resource Include="Image\tileView.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\logo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
