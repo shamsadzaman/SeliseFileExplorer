@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using SeliseFileExplorer.ViewModel.Interface;
@@ -11,6 +12,7 @@ namespace SeliseFileExplorer.ViewModel
         public string LogoImageLocation { get; set; }
         public string HeaderTitle { get; set; }
         public List<string> ThemeList { get; set; }
+        public string SelectedTheme { get; set; }
 
         public ImageSource LogoSource { get; set; }
 
@@ -32,6 +34,8 @@ namespace SeliseFileExplorer.ViewModel
                 "Theme 1",
                 "Theme 2"
             };
+
+            SelectedTheme = ThemeList.First();
         }
     }
 }

@@ -19,7 +19,7 @@
         <controls:Toolbar Grid.Row="1" />
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*" MaxWidth="200"/>
+                <ColumnDefinition Width="5*" Style="{StaticResource LeftPanelWidth}"/>
                 <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
             <controls:FolderList Grid.Column="0" />
