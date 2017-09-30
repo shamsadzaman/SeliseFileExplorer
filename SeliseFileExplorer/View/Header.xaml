@@ -30,8 +30,13 @@
         <Label Grid.Column="1" Grid.Row="1" Content="{Binding HeaderTitle}" Style="{StaticResource HeaderTitle}"/>
 
         <ComboBox Grid.Column="2" Grid.Row="1" ItemsSource="{Binding ThemeList}" SelectedValue="{Binding SelectedTheme}" 
-                  Style="{StaticResource ThemeComboBox}"/>
-
+                  Style="{StaticResource ThemeComboBox}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding ThemeName}"></TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
     </Grid>
 </UserControl>
 

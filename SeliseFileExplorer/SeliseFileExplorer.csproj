@@ -94,6 +94,7 @@
     <Compile Include="Model\Directory.cs" />
     <Compile Include="Model\File.cs" />
     <Compile Include="Model\Folder.cs" />
+    <Compile Include="Model\Theme.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Model\DirectoryInfo.cs" />
     <Compile Include="ViewModel\FolderDetailsViewModel.cs" />

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Documents;
+using SeliseFileExplorer.Model;
 
 namespace SeliseFileExplorer.ViewModel.Interface
 {
@@ -9,6 +10,6 @@ namespace SeliseFileExplorer.ViewModel.Interface
 
         string HeaderTitle { get; set; }
 
-        List<string> ThemeList { get; set; }
+        List<Theme> ThemeList { get; set; }
     }
 }
