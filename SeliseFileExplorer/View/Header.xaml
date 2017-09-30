@@ -31,17 +31,21 @@
             </Ellipse.Fill>
         </Ellipse>
         
-        <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Source="{Binding LogoSource}" Height="100" Width="100" 
-               Visibility="{Binding SelectedTheme.ThemeId, Converter={converter:ThemeTypeToCollapsedConverter}, 
-                    ConverterParameter={x:Static model:ThemeId.Theme2}}" />
-
+        <Border Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Height="100" Width="100" CornerRadius="5"
+                Visibility="{Binding SelectedTheme.ThemeId, Converter={converter:ThemeTypeToCollapsedConverter}, 
+                    ConverterParameter={x:Static model:ThemeId.Theme2}}">
+            <Border.Background>
+                <ImageBrush ImageSource="{Binding LogoSource}" />
+            </Border.Background>
+        </Border>
+        
         <Label Grid.Column="1" Grid.Row="1" Content="{Binding HeaderTitle}" Style="{StaticResource HeaderTitle}"/>
 
         <ComboBox Grid.Column="2" Grid.Row="1" ItemsSource="{Binding ThemeList}" SelectedValue="{Binding SelectedTheme}" 
                   Style="{StaticResource ThemeComboBox}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding ThemeName}"></TextBlock>
+                    <TextBlock Text="{Binding ThemeName}" />
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
