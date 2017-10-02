@@ -18,7 +18,7 @@
                     <GridViewColumn.CellTemplate>
                         <DataTemplate DataType="{x:Type viewModel:FolderViewModel}">
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="../Image/folder.png" Width="15" Height="15" 
+                                <Image Source="Resource/Image/folder.png" Width="15" Height="15" 
                                        Visibility="{Binding NodeType, Converter={converter:NodeTypeToVisibilityConverter}, 
                                             ConverterParameter={x:Static constant:NodeType.Folder}}"/>
                                 <TextBlock Text="{Binding Name}" />

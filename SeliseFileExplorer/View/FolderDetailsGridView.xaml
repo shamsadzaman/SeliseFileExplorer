@@ -16,7 +16,7 @@
         <DataGrid.ItemTemplate>
             <DataTemplate>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="../Image/folder.png"
+                    <Image Source="Resource/Image/folder.png"
                            Visibility="{Binding NodeType, Converter={converter:NodeTypeToVisibilityConverter}, 
                             ConverterParameter={x:Static constant:NodeType.Folder}}" />
                     <TextBlock Text="{Binding Name}" />

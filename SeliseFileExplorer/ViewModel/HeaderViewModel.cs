@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using GalaSoft.MvvmLight;
+using SeliseFileExplorer.Config;
 using SeliseFileExplorer.Model;
 using SeliseFileExplorer.ViewModel.Interface;
 
@@ -11,6 +12,7 @@ namespace SeliseFileExplorer.ViewModel
 {
     public class HeaderViewModel : ViewModelBase, IHeaderViewModel
     {
+        private readonly IAppConfig _config;
         private Theme _selectedTheme;
         public string LogoImageLocation { get; set; }
         public string HeaderTitle { get; set; }
@@ -34,8 +36,9 @@ namespace SeliseFileExplorer.ViewModel
 
         public ImageSource LogoSource { get; set; }
 
-        public HeaderViewModel()
+        public HeaderViewModel(IAppConfig config)
         {
+            _config = config;
             Initialize();
         }
 
@@ -43,7 +46,7 @@ namespace SeliseFileExplorer.ViewModel
         {
             // "pack://application:,,,/AssemblyName;component/Resources/logo.png"
             var logoLocation = "Image/logo.jpg";
-            LogoSource = new BitmapImage(new Uri(@"pack://application:,,,/SeliseFileExplorer;component/" + logoLocation));
+            LogoSource = new BitmapImage(new Uri(_config.ResourceLocation + logoLocation));
 
             LogoImageLocation = "";
             HeaderTitle = "File Explorer";

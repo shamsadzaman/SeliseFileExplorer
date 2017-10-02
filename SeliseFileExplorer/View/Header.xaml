@@ -9,7 +9,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.DataContext>
-        <viewmodel:HeaderViewModel />
+        <Binding Source="{StaticResource Locator}" Path="HeaderViewModel" />
     </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>

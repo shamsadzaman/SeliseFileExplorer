@@ -21,13 +21,13 @@ namespace SeliseFileExplorer.Converter
             switch (commandType)
             {
                 case ToolbarCommandType.Delete:
-                    return "../Image/Delete.png";
+                    return "../Resource/Image/Delete.png";
 
                 case ToolbarCommandType.ShowGridView:
-                    return "../Image/TileView.png";
+                    return "../Resource/Image/TileView.png";
 
                 case ToolbarCommandType.ShowListView:
-                    return "../Image/ListView.png";
+                    return "../Resource/Image/ListView.png";
 
                 default:
                     throw new ArgumentOutOfRangeException();
