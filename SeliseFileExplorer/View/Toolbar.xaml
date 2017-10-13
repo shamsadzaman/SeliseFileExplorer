@@ -3,31 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:viewmodel="clr-namespace:SeliseFileExplorer.ViewModel"
              xmlns:converter="clr-namespace:SeliseFileExplorer.Converter"
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="100">
-    <UserControl.Resources>
-        <viewmodel:ViewModelLocator x:Key="ViewModelLocator" />
-    </UserControl.Resources>
-        <UserControl.DataContext>
-            <Binding Source="{StaticResource ViewModelLocator}" Path="ToolBarViewModel" />
-        </UserControl.DataContext>
-        <ItemsControl ItemsSource="{Binding ToolbarCommandList}">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Button Command="{Binding Command}">
-                        <StackPanel>
-                            <Image Source="{Binding CommandType, Converter={converter:ToolbarCommandTypeToImageSource}}" Width="15" Height="15" />
-                            <TextBlock Text="{Binding CommandType, Converter={converter:ToolbarCommandTypeToDisplayName}}" />
-                        </StackPanel>
-                    </Button>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+    <UserControl.DataContext>
+        <Binding Source="{StaticResource Locator}" Path="ToolBarViewModel" />
+    </UserControl.DataContext>
+    <ItemsControl ItemsSource="{Binding ToolbarCommandList}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Horizontal" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Button Command="{Binding Command}">
+                    <StackPanel>
+                        <Image Source="{Binding CommandType, Converter={converter:ToolbarCommandTypeToImageSource}}" Width="15" Height="15" />
+                        <TextBlock Text="{Binding CommandType, Converter={converter:ToolbarCommandTypeToDisplayName}}" />
+                    </StackPanel>
+                </Button>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
 </UserControl>
